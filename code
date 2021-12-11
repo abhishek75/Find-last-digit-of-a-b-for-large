@@ -1,0 +1,28 @@
+if(b=="0"){
+            return 1;
+        }
+        int a1=a[a.size()-1]-'0';
+        int b1=b[b.size()-1]-'0';
+        if(b.size()>1){
+            string ss="";
+            ss+=b[b.size()-2];
+            ss+=b[b.size()-1];
+            b1=stoi(ss);
+        }
+        set<int>st;
+        
+        for(int i=1;i<=7;i++){
+            int j=pow(a1,i);
+            j=j%10;
+            st.insert(j);
+        }
+        // for(auto i=st.begin();i!=st.end();i++){
+        //     cout<<*i<<" ";
+        // }
+        int rem=b1%st.size();
+        //cout<<endl<<rem<<endl;
+        if(rem==0){
+            return ((int)pow(a1,st.size()))%10;
+        }
+        else{
+            return ((int)pow(a1,rem))%10;
